@@ -102,6 +102,8 @@ echo "Setting permissions..."
 echo
 
 chmod 550 mage
+#fast fix for now, it wont work otherwise
+chmod 777 var
 
 if [ "$sample" = "y" ]; then
   echo
