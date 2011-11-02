@@ -55,8 +55,12 @@ if [ "$url" = "" ]; then
   echo "url is $url"
 fi
 
-echo -n "Include Sample Data? (y/n) "
+echo -n "Include Sample Data? (y/n) (enter for no) "
 read sample
+if [ "$sample" = "" ]; then
+  sample="n"
+  echo "sample is $n"
+fi
 
 if [ -f magento-$magento_version.tar.gz ]; then
   echo "skipping the download since already downloaded"
@@ -101,11 +105,11 @@ echo
 echo "Setting permissions..."
 echo
 
-chmod 550 mage
-#needed for magento connect manager
-find . -type d -exec chmod 777 {} \;
 #fast fix for now, it wont work otherwise
+chmod 550 mage
 chmod 777 var
+chmod 777 media
+#find . -type d -exec chmod 777 {} \;
 
 if [ "$sample" = "y" ]; then
   echo
