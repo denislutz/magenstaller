@@ -102,6 +102,8 @@ echo "Setting permissions..."
 echo
 
 chmod 550 mage
+#needed for magento connect manager
+find . -type d -exec chmod 777 {} \;
 #fast fix for now, it wont work otherwise
 chmod 777 var
 
