@@ -8,15 +8,16 @@ echo -n "Give the installation absolute folder  (e.g. /users/yourname/Sites/mage
 read rootfolder 
 
 if [ "$rootfolder" = "" ]; then
-  rootfolder="~/Sites/magentodemo"
-  echo "installation folder is set to $rootfolder"
+  echo "no valid root folder was given, stopping the installation..."
+  exit
 fi
 
-echo -n "Give the magento version you want to install  (enter for default 1.6.0.0): "
+
+echo -n "Give the magento version you want to install  (enter for default 1.6.1.0): "
 read magento_version 
 
 if [ "$magento_version" = "" ]; then
-  magento_version="1.6.0.0"
+  magento_version="1.6.1.0"
   echo "installation folder is set to $magento_version"
 fi
 
@@ -105,11 +106,10 @@ echo
 echo "Setting permissions..."
 echo
 
-#fast fix for now, it wont work otherwise
 chmod 550 mage
-chmod 777 var
-chmod 777 media
-#find . -type d -exec chmod 777 {} \;
+chmod 775 var
+chmod 775 media
+chmod 775 app/etc 
 
 if [ "$sample" = "y" ]; then
   echo
