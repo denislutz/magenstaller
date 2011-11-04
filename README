@@ -1,0 +1,7 @@
+This is a small project to create useful magento installation scripts based on bash.
+Please contribute if you want to extend it or make it better.
+
+Todo:
+
+- create bash functions for user questions so it gets DRY
+- finish the load sample data script
